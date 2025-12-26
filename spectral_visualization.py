@@ -92,7 +92,7 @@ def plot_spectral_decomposition(clean, adv, save_path):
     plt.show()
 
 def run_vis():
-    print(f"🚀 Generating Spectral Visualization...")
+    print(f"Generating Spectral Visualization...")
     model = timm.create_model(MODEL_NAME, pretrained=True).to(DEVICE).eval()
     
     img, label = get_data(model)

@@ -2,7 +2,7 @@
 #This script generates the data for Table II: Perturbation Energy Distribution by Wavelet Band
 #It is essential for reproducing Section ("The Energy Distribution Paradox")
 !pip install torchattacks
-# @title Analysis 5b: Granular Energy Distribution (LL, LH, HL, HH)
+#Title Analysis 5b: Granular Energy Distribution (LL, LH, HL, HH)
 import torch
 import timm
 import torchattacks
@@ -66,7 +66,7 @@ def calculate_band_energy(clean_tensor, adv_tensor):
 
 # --- 3. Run ---
 def run_analysis():
-    print(f"\n🚀 Analyzing Granular Energy (ViT-Tiny)...")
+    print(f"\nAnalyzing Granular Energy (ViT-Tiny)...")
     model = timm.create_model('vit_tiny_patch16_224', pretrained=True).to(DEVICE).eval()
     images, labels = get_data_and_labels(model)
     

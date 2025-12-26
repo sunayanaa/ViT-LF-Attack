@@ -1,6 +1,6 @@
 #filename analysis_2_latent_lowpass.py
 #This script implements the "Nuclear" latent ablation mechanism.
-# @title 6. The "Nuclear Option" (CLS Cleaning + Low-Pass Only)
+#Title The "Nuclear Option" (CLS Cleaning + Low-Pass Only)
 import torch
 import torch.nn as nn
 import timm
@@ -77,15 +77,15 @@ with torch.no_grad():
 
 broken_mask = (clean_preds != adv_preds)
 num_broken = broken_mask.sum().item()
-print(f"✅ Attack Broken: {num_broken}/32 images")
+print(f"Attack Broken: {num_broken}/32 images")
 
 if num_broken == 0:
-    print("⚠️ Attack failed! We cannot test defense.")
+    print("Attack failed! We cannot test defense.")
 else:
     # 5. Run Nuclear Test across Layers
     LAYERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-    print("\n🚀 NUCLEAR TEST RESULTS (Keep LL Only + Clean CLS)")
+    print("\nNUCLEAR TEST RESULTS (Keep LL Only + Clean CLS)")
     print(f"{'Layer':<6} | {'Recovery Rate':<15}")
     print("-" * 30)
 
@@ -100,7 +100,7 @@ else:
             recovered = (def_preds[broken_mask] == clean_preds[broken_mask]).sum().item()
             rate = 100. * recovered / num_broken
             
-            marker = "🔥" if rate > 0 else " "
+            marker = "^" if rate > 0 else " "
             print(f"Blk {layer_idx:<2} | {rate:.1f}% {marker}")
             
         finally:

@@ -1,7 +1,7 @@
 #filename analysis_4_table_benchmark.py
 #This script generates the data for Table I: Comparative Robustness Under Spectral Defense Protocols.
 #It provides the source for the "Quantitative Assurance Testing" described in Section III.A, specifically the comparison between ViT-Tiny and ResNet-50
-# @title Analysis 4: Final Benchmark (Auto-Labeling + Stable URLs)
+#Title Analysis 4: Final Benchmark (Auto-Labeling + Stable URLs)
 import torch
 import timm
 import torchattacks
